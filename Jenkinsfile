@@ -25,16 +25,16 @@ pipeline
                 }
             }
         }
-        // stage('Docker Build To Image')
-        // {
-        //     steps
-        //     {
-        //         script
-        //         {
-        //             imageName= docker.build 'revanth321/spe'
-        //         }
-        //     }
-        // }
+        stage('Docker Build To Image')
+        {
+            steps
+            {
+                script
+                {
+                    imageName= docker.build 'revanth321/spe'
+                }
+            }
+        }
         // stage('Push Docker Image')
         // {
         //     steps
