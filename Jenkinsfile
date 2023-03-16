@@ -33,11 +33,11 @@ pipeline
             }
         }
         stage('Push Docker Image')
-        {
-            steps
-            {  
-                sh 'docker push revanth321/spe:latest'
-            }
+        { 
+                withDockerRegistry([ credentialsId: "Dockerhubaccount", url: "" ]) {
+        bat "docker push revanth321/spe:latest"
+        }
+            
                 
             
         }
