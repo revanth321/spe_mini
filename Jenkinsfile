@@ -25,22 +25,23 @@ pipeline
                 }
             }
         }
-        stage('Docker Build To Image')
-        {
-            steps
-            {
-               sh 'docker build -t revanth321/spe .'
+         stage('Docker Build To Image') {
+            steps {
+              script{
+                  imageName =docker.build 'revanth321/spe'
+              }
             }
-        }
-        stage('Push Docker Image')
-        { 
-                withDockerRegistry([ credentialsId: "Dockerhubaccount", url: "" ])
-                 {
-                    bat "docker push revanth321/spe:latest"
-                 }
-            
-                
-            
-        }
+
+         }
+         stage('Push Docker Image') {
+            steps {
+                script{
+                    docker.withRegistry('','Dockerhubaccount'){
+                    imageName.push()
+                    }
+                }
+            }
+
+         }
     }
 }
