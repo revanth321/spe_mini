@@ -29,24 +29,17 @@ pipeline
         {
             steps
             {
-                script
-                {
-                    imageName= docker.build 'revanth321/spe'
-                }
+               sh 'docker build -t revanth321/spe .'
             }
         }
         stage('Push Docker Image')
         {
             steps
-            {
-                script
-                {
-                    docker.withRegistry('','Dockerhubaccount')
-                    {
-                        imagename.push()
-                    }
-                }
+            {  
+                sh 'docker push revanth321/spe:latest'
             }
+                
+            
         }
     }
 }
