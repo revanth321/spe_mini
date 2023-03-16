@@ -35,18 +35,18 @@ pipeline
                 }
             }
         }
-        // stage('Push Docker Image')
-        // {
-        //     steps
-        //     {
-        //         script
-        //         {
-        //             docker.withRegistry('','docker-jenkins')
-        //             {
-        //                 imagename.push()
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Push Docker Image')
+        {
+            steps
+            {
+                script
+                {
+                    docker.withRegistry('','Dockerhubaccount')
+                    {
+                        imagename.push()
+                    }
+                }
+            }
+        }
     }
 }
