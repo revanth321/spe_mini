@@ -1,0 +1,10 @@
+---
+- name: Pull Docker Image
+  hosts: all
+  tasks:
+    - name: Pull Calculator Image from Docker Hub
+      docker_image:
+        name: revanth321/spe
+        source: pull
+    - name: Running docker container
+      shell: docker run -itd revanth321/spe
