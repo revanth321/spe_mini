@@ -45,7 +45,7 @@ pipeline
          }
            stage('Ansible Pull Docker Image') {
             steps {
-              ansiblePlaybook becomeUser: null, colorized: true, disableHostKeyChecking: true, installation: 'ansible', s playbook: 'playbook.yml', sudoUser: null
+              ansiblePlaybook becomeUser: null, colorized: true, disableHostKeyChecking: true, installation: 'ansible', playbook: 'playbook.yml', sudoUser: null
             }
 
         }
